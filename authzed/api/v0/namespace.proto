@@ -30,7 +30,7 @@ message Metadata {
 message NamespaceDefinition {
   string name = 1 [ (validate.rules).string = {
     pattern : "^([a-z][a-z0-9_]{2,62}[a-z0-9]/)?[a-z][a-z0-9_]{2,62}[a-z0-9]$",
-    max_bytes : 128,
+    max_bytes : 1024,
   } ];
 
   repeated Relation relation = 2;
@@ -40,7 +40,7 @@ message NamespaceDefinition {
 message Relation {
   string name = 1 [ (validate.rules).string = {
     pattern : "^[a-z][a-z0-9_]{2,62}[a-z0-9]$",
-    max_bytes : 64,
+    max_bytes : 1024,
   } ];
   UsersetRewrite userset_rewrite = 2;
   TypeInformation type_information = 3;
@@ -88,7 +88,7 @@ message TupleToUserset {
   message Tupleset {
     string relation = 1 [ (validate.rules).string = {
       pattern : "^[a-z][a-z0-9_]{2,62}[a-z0-9]$",
-      max_bytes : 64,
+      max_bytes : 1024,
     } ];
   }
 
@@ -106,6 +106,6 @@ message ComputedUserset {
   Object object = 1 [ (validate.rules).enum.defined_only = true ];
   string relation = 2 [ (validate.rules).string = {
     pattern : "^[a-z][a-z0-9_]{2,62}[a-z0-9]$",
-    max_bytes : 64,
+    max_bytes : 1024,
   } ];
 }

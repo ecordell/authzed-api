@@ -18,7 +18,7 @@ service NamespaceService {
 message ReadConfigRequest {
   string namespace = 1 [ (validate.rules).string = {
     pattern : "^([a-z][a-z0-9_]{2,62}[a-z0-9]/)?[a-z][a-z0-9_]{2,62}[a-z0-9]$",
-    max_bytes : 128,
+    max_bytes : 1024,
   } ];
   Zookie at_revision = 2;
 }
@@ -43,7 +43,7 @@ message DeleteConfigsRequest {
     (validate.rules).repeated .min_items = 1,
     (validate.rules).repeated .items.string = {
       pattern : "^([a-z][a-z0-9_]{2,62}[a-z0-9]/)?[a-z][a-z0-9_]{2,62}[a-z0-9]$",
-      max_bytes : 128,
+      max_bytes : 1024,
   } ];
 }
 

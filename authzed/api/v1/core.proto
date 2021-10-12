@@ -16,7 +16,7 @@ message Relationship {
   // relation is how the resource and subject are related.
   string relation = 2 [ (validate.rules).string = {
     pattern : "^[a-z][a-z0-9_]{2,62}[a-z0-9]$",
-    max_bytes : 64,
+    max_bytes : 1024,
   } ];
 
   // subject is the subject to which the resource is related, in some manner.
@@ -30,7 +30,7 @@ message SubjectReference {
   ObjectReference object = 1;
   string optional_relation = 2 [ (validate.rules).string = {
     pattern : "^([a-z][a-z0-9_]{2,62}[a-z0-9])?$",
-    max_bytes : 64,
+    max_bytes : 1024,
   } ];
 }
 
@@ -38,11 +38,11 @@ message SubjectReference {
 message ObjectReference {
   string object_type = 1 [ (validate.rules).string = {
     pattern : "^([a-z][a-z0-9_]{2,61}[a-z0-9]/)?[a-z][a-z0-9_]{2,62}[a-z0-9]$",
-    max_bytes : 128,
+    max_bytes : 1024,
   } ];
   string object_id = 2 [ (validate.rules).string = {
-    pattern : "^[a-zA-Z0-9_][a-zA-Z0-9/_-]{0,127}$",
-    max_bytes : 128,
+    pattern : "^[a-zA-Z0-9_][a-zA-Z0-9/_-]*$",
+    max_bytes : 1024,
   } ];
 }
 
